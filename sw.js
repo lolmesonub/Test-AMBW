@@ -27,19 +27,21 @@ self.addEventListener("fetch", (event) => {
     if (!event.request.url.startsWith("http")) {
         return;
     }
-    
+
     event.respondWith(
         caches.match(event.request).then((response) => {
-            if (response) 
+            if (response)
                 return response;
-            else{
+            else {
                 return fetch(event.request).then((response) => {
                     return caches.open(CACHE_NAME).then((cache) => {
                         cache.put(event.request, response.clone());
                         return response;
                     });
                 }).catch((error) => {
-                    return caches.match(OFFLINE_PAGE);
+                    return caches.open(CACHE_NAME).then((cache) => {
+                        return caches.match(OFFLINE_PAGE);
+                    });
                 });
             }
         })
