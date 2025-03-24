@@ -1,14 +1,14 @@
 const CACHE_NAME = "Test-PWA-AMBW";
 const OFFLINE_PAGE = "offline.html";
 const ASSETS = [
-    "index.html",
-    "about.html",
-    "offline.html",
-    "styles.css",
+    "../index.html",
+    "../about.html",
+    "../offline.html",
+    "../style/styles.css",
     "app.js",
     "script.js",
-    "icons/icon-192x192.png",
-    "icons/icon-512x512.png"
+    "../icons/icon-192x192.png",
+    "../icons/icon-512x512.png"
 ];
 
 // Install Service Worker

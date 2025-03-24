@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         const response = await fetch("https://jsonplaceholder.typicode.com/posts");
         const posts = await response.json();
 
-        posts.slice(0, 10).forEach(post => {
+        posts.forEach(post => {
             const postCard = document.createElement("div");
             postCard.classList.add("card");
 
